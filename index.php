@@ -3,24 +3,27 @@
 
   <header>
     <h1>suivi-carbu</h1>
-    <h2>page d'accueil</h2>
   </header>
 
   <main>
-    
+    <h2>Page d'accueil</h2>
+    <a class="btn" href="ajout--formulaire.php">Ajouter</a>
+
     <?php
 
       if (isset($_COOKIE["plein"])) {
 
-        echo "<table>"
+        echo "<div class='scroll'>"
+            ."<table>"
             ."<thead>"
             ."<tr>"
             ."<th>Date</th>"
             ."<th>Prix/L</th>"
-            ."<th>Conso</th>"
+            ."<th>Conso moyenne</th>"
             ."</tr>"
             ."</thead>"
-            ."<tbody>";
+            ."<tbody>"
+            ."</div>";
 
         foreach ($_COOKIE["plein"] as $key => $value) {
           list($datePlein, $prixLitre, $moyenneLitresAuCent) = explode("|", $value);
@@ -43,8 +46,6 @@
       }
 
     ?>
-
-    <a class="btn" href="ajout--formulaire.php">ajouter</a>
 
   </main>
 
